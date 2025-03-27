@@ -14,7 +14,11 @@ public class BookModel {
     private String categoria;
 
     public BookModel(){
+    }
 
+    public BookModel(String categoria, String nome) {
+        this.categoria = categoria;
+        this.nome = nome;
     }
 
     public Long getId() {

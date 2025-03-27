@@ -23,10 +23,10 @@ public class BookController {
     }
 
     @PostMapping
-    private ResponseEntity<BookModel> criarLivro(@RequestBody BookModel bookModel){
+    private ResponseEntity<BookModel> criarLivro(@RequestBody BookDTO bookDTO){
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(bookModel.getId()).toUri();
-        BookModel response = bookService.criarLivro(bookModel);
+                .buildAndExpand(bookDTO.getId()).toUri();
+        BookModel response = bookService.criarLivro(bookDTO.transformaParaObjeto());
         return ResponseEntity.created(uri).body(response);
     }
 
